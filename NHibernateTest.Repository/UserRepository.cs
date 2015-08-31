@@ -34,7 +34,8 @@ namespace NHibernateTest.Repository
              //        .SetParameter("StartDate", startDate)
              //        .SetParameter("EndDate", endDate)
              //        .List().ToList();
-            return null;
+            
+            return users;
 
         }
     }

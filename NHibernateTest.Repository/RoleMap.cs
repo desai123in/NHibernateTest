@@ -14,7 +14,7 @@ namespace NHibernateTest.Repository
         {
             Id(x => x.Id).Column("RoleId");
             Map(x => x.Name).Column("RoleName");
-            References<User>(x => x.User, "RoleId");
+            References<User>(x => x.User, "EmployeeId");
            // HasManyToMany<User>(x => x.Users).ParentKeyColumn("EmployeeId").Inverse();
             //References(x => x, "department_id");
            // References(x=>x)

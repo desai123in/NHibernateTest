@@ -18,7 +18,7 @@ namespace NHibernateTest.Repository
             Map(x => x.State).Column("State");
             Map(x => x.JoinedOn).Column("JoinDate");
            // HasManyToMany<Role>(x => x.Roles).ChildKeyColumn("RoleId");
-            HasMany<Role>(x => x.Roles).KeyColumn("EmployeeId").Inverse();
+            HasMany<Role>(x => x.Roles).KeyColumn("EmployeeId");//.Inverse();
             
         }
     }
