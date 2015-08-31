@@ -6,6 +6,16 @@
 <hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" auto-import="true">
 <sql-query name="AllUser">
   <return class="NHibernateTest.Entity.User,NHibernateTest.Entity" />
+  <return class="NHibernateTest.Entity.Role,NHibernateTest.Entity" />
   exec dbo.GetAllEmployee
+</sql-query>
+<sql-query name="AllUser2">
+    <return alias="User" class="NHibernateTest.Entity.User,NHibernateTest.Entity"/>
+    <return-join alias="Role" property="User.Roles"/>
+     
+        <!--<return-property column="RoleId" name="Id" />
+        <return-property column="RoleName" name="Name" />-->
+    
+    EXEC dbo.GetAllEmployee
 </sql-query>
 </hibernate-mapping>

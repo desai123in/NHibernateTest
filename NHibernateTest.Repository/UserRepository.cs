@@ -12,12 +12,29 @@ namespace NHibernateTest.Repository
 
         public IList<User> GetAllUsers()
         {
-             IList<User> users = NHibernateHelper.OpenSession()
-                 
-            .GetNamedQuery("AllUser")
-            .List<User>();
+           //BELOW WORKS NICE,
+            var users = NHibernateHelper.OpenSession()
+           .GetNamedQuery("AllUser2")
+                //.List<Object>();
+           .List<User>().Distinct().ToList();
 
-            return users;
+            //LETS SEE IF WE CAN GET RID OF HBM FILE
+
+           // var users2 = users.GroupBy(o => ((User)(((object[])o)[0])).Id);
+
+             //var list = NHibernateHelper.OpenSession().CreateSQLQuery("exec GetCustomerByNaturalKey ?, ?")
+             //.AddEntity(typeof(User))
+             ////.SetInt32(0, customerNo)
+             ////.SetDateTime(1, createdDate)
+             //.List<User>();
+
+             //var result = session.CreateSQLQuery("exec GetMemberGameActivity :mToken, :StartDate, :EndDate")
+             //        .SetResultTransformer(Transformers.AliasToBean())
+             //        .SetParameter("mToken", token)
+             //        .SetParameter("StartDate", startDate)
+             //        .SetParameter("EndDate", endDate)
+             //        .List().ToList();
+            return null;
 
         }
     }
